@@ -44,7 +44,7 @@ Edite o arquivo index.tsx para definir o endereço do backend:
 
 const API_URL = "http://SEU_IP:8080/contato";
 
-OBS: como a API esta rodando localmente é necessario alterar o ip da URL para comunicar o front com o back-end. Se mesmo rodando ainda não conecte possivelmente é bloqueio do firewall o projeto esta configurado para redes privada.
+OBS: como a API esta rodando localmente é necessario alterar o ip da URL para comunicar o front com o back-end. Se mesmo rodando ainda não conecta, possivelmente é bloqueio do firewall o projeto esta configurado para redes privadas.
 
 
 Para testes em rede local: use o IP da máquina que está rodando o backend
