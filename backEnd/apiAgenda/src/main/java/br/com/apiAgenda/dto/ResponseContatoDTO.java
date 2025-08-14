@@ -10,9 +10,7 @@ public record ResponseContatoDTO(
         String apelido,
         Long cpf,
         Long telefone,
-        String email,
-        LocalDateTime dataCadastro,
-        LocalDateTime DataUltimaAlteracao
+        String email
 ) {
     public static ResponseContatoDTO from(Contato contato){
         return new ResponseContatoDTO(
@@ -21,9 +19,7 @@ public record ResponseContatoDTO(
                 contato.getApelido(),
                 contato.getCpf(),
                 contato.getTelefone(),
-                contato.getEmail(),
-                contato.getDataCadastro(),
-                contato.getDataUltimaAlteracao()
+                contato.getEmail()
         );
     }
 }

@@ -27,6 +27,7 @@ public class ContatoService {
 
     public Contato create(Contato contato){
         contato.setDataCadastro(LocalDateTime.now());
+        contato.setDataUltimaAlteracao(LocalDateTime.now());
         return repository.save(contato);
     }
 
