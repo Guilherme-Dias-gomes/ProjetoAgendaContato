@@ -11,6 +11,8 @@ interface Contato {
   cpf: number;
   telefone: number;
   email: string;
+  dataCadastro: string;
+  DataUltimaAlteracao: string;
 }
 
 export default function HomeScreen() {
@@ -102,22 +104,44 @@ export default function HomeScreen() {
     setEmail("");
   };
 
-  const renderItem = ({ item }: { item: Contato }) => (
-    <ThemedView style={styles.card}>
-      <ThemedText type="defaultSemiBold">{item.nome} ({item.apelido})</ThemedText>
-      <ThemedText>CPF: {item.cpf}</ThemedText>
-      <ThemedText>Telefone: {item.telefone}</ThemedText>
-      <ThemedText>Email: {item.email}</ThemedText>
-      <View style={styles.cardButtons}>
-        <TouchableOpacity style={[styles.botao, styles.botaoEditar]} onPress={() => editarContato(item)}>
-          <ThemedText style={styles.botaoTexto}>Editar</ThemedText>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.botao, styles.botaoExcluir]} onPress={() => excluirContato(item.id)}>
-          <ThemedText style={styles.botaoTexto}>Excluir</ThemedText>
-        </TouchableOpacity>
-      </View>
-    </ThemedView>
-  );
+  const formatarData = (dataString: string) => {
+  if (!dataString) return "";
+  const data = new Date(dataString);
+  return data.toLocaleString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
+
+ const renderItem = ({ item }: { item: Contato }) => (
+  <ThemedView style={styles.card}>
+    <ThemedText type="defaultSemiBold">
+      {item.nome} ({item.apelido})
+    </ThemedText>
+    <ThemedText>CPF: {item.cpf}</ThemedText>
+    <ThemedText>Telefone: {item.telefone}</ThemedText>
+    <ThemedText>Email: {item.email}</ThemedText>
+    <ThemedText>Data Cadastrado: {formatarData(item.dataCadastro)}</ThemedText>
+    <ThemedText>Data Alteração: {formatarData(item.DataUltimaAlteracao)}</ThemedText>
+    <View style={styles.cardButtons}>
+      <TouchableOpacity
+        style={[styles.botao, styles.botaoEditar]}
+        onPress={() => editarContato(item)}
+      >
+        <ThemedText style={styles.botaoTexto}>Editar</ThemedText>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.botao, styles.botaoExcluir]}
+        onPress={() => excluirContato(item.id)}
+      >
+        <ThemedText style={styles.botaoTexto}>Excluir</ThemedText>
+      </TouchableOpacity>
+    </View>
+  </ThemedView>
+);
 
   return (
     <ThemedView style={styles.container}>

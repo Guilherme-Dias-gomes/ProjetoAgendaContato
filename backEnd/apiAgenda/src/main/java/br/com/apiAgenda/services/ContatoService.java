@@ -32,6 +32,8 @@ public class ContatoService {
     }
 
     public Contato editContato(EditContatoDTO dto, Long id){
+        Contato contato = new Contato();
+        contato.setDataUltimaAlteracao(LocalDateTime.now());
         Contato contatoExistente = repository.findById(id).orElseThrow(
                 () -> new ContatoNotFoundException(id)
         );

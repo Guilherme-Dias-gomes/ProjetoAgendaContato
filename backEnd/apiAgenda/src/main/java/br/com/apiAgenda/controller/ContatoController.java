@@ -1,5 +1,6 @@
 package br.com.apiAgenda.controller;
 
+import br.com.apiAgenda.dto.CreateContatoDTO;
 import br.com.apiAgenda.dto.EditContatoDTO;
 import br.com.apiAgenda.dto.ResponseContatoDTO;
 import br.com.apiAgenda.model.Contato;
@@ -33,7 +34,7 @@ public class ContatoController {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseContatoDTO> criarContato(@RequestBody ResponseContatoDTO dto) {
+    public ResponseEntity<CreateContatoDTO> criarContato(@RequestBody CreateContatoDTO dto) {
         Contato novoContato = new Contato();
         novoContato.setNome(dto.nome());
         novoContato.setApelido(dto.apelido());
@@ -43,7 +44,7 @@ public class ContatoController {
 
         Contato contatoSalvo = service.create(novoContato);
 
-        ResponseContatoDTO response = new ResponseContatoDTO(
+        CreateContatoDTO response = new CreateContatoDTO(
                 contatoSalvo.getId(),
                 contatoSalvo.getNome(),
                 contatoSalvo.getApelido(),
