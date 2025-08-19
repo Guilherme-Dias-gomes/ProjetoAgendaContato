@@ -1,88 +1,79 @@
-<h1>Agenda de Contatos Mobile</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px;">
 
-Aplicativo mobile desenvolvido em React Native com Expo para gerenciar uma agenda de contatos integrada a um backend Java Spring Boot.
+  <h1>📅 Projeto Agenda</h1>
+  <p>
+    Este é um projeto de <strong>Agenda</strong> desenvolvido em 
+    <strong>ASP.NET Core MVC</strong> utilizando <strong>Entity Framework Core</strong> 
+    para persistência de dados em <strong>SQL Server</strong>.
+  </p>
 
-O app permite:
+  <h2>🚀 Tecnologias Utilizadas</h2>
+  <ul>
+    <li>ASP.NET Core MVC</li>
+    <li>Entity Framework Core</li>
+    <li>SQL Server</li>
+    <li>Visual Studio / VS Code</li>
+  </ul>
 
-Criar (Insert): Adicionar novos contatos
+  <h2>⚙️ Configuração do Banco de Dados</h2>
+  <p>
+    O projeto utiliza <strong>SQL Server</strong>. 
+    Para rodar localmente, configure sua string de conexão no arquivo 
+    <code>appsettings.json</code>.
+  </p>
 
-Ler (Select): Visualizar a lista de contatos
+  <pre style="background:#f4f4f4;padding:10px;border-radius:5px;">
+"ConnectionStrings": {
+  "DefaultConnection": "Server=SEU_SERVIDOR;Database=AgendaDB;Trusted_Connection=True;TrustServerCertificate=True;"
+}
+  </pre>
 
-Atualizar (Update): Modificar informações de um contato
+  <p>
+    Caso utilize usuário e senha, configure assim:
+  </p>
+  <pre style="background:#f4f4f4;padding:10px;border-radius:5px;">
+"ConnectionStrings": {
+  "DefaultConnection": "Server=SEU_SERVIDOR;Database=AgendaDB;User Id=SEU_USUARIO;Password=SUA_SENHA;TrustServerCertificate=True;"
+}
+  </pre>
 
-Deletar (Delete): Remover contatos
+  <h2>📦 Executando Migrações</h2>
+  <p>
+    Para criar o banco de dados via Entity Framework Core:
+  </p>
+  <pre style="background:#f4f4f4;padding:10px;border-radius:5px;">
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+  </pre>
 
-<h1>Pré-requisitos</h1>
+  <h2>▶️ Como Rodar o Projeto</h2>
+  <ol>
+    <li>Clone o repositório</li>
+    <li>Configure a conexão com o banco no <code>appsettings.json</code></li>
+    <li>Restaure as dependências: <code>dotnet restore</code></li>
+    <li>Execute as migrações: <code>dotnet ef database update</code></li>
+    <li>Rode o projeto: <code>dotnet run</code></li>
+    <li>Acesse no navegador: <a href="http://localhost:5000">http://localhost:5000</a></li>
+  </ol>
 
-Antes de rodar o projeto, certifique-se de ter instalado:
+  <h2>📖 Funcionalidades</h2>
+  <ul>
+    <li>Cadastro de compromissos</li>
+    <li>Listagem de compromissos</li>
+    <li>Edição de compromissos</li>
+    <li>Exclusão de compromissos</li>
+  </ul>
 
-Node.js (versão LTS recomendada)
+  <h2>👨‍💻 Autor</h2>
+  <p>
+    Desenvolvido por <strong>Guilherme Dias</strong>.
+  </p>
 
-Yarn ou npm
-
-Expo CLI
-
-Android Studio + Android Virtual Device (AVD) configurado (para emulador) / Dispositivo físico Android (opcional) com o app Expo Go instalado
-
-(Caso queira rodar no dispositivo físico, ambos (PC e celular) devem estar conectados à mesma rede Wi-Fi.)
-
-Passo 1: Clonar o repositório
-
-cd NOME_DO_REPOSITORIO/front-end
-
-Passo 2: Instalar dependências
-
-No diretório do front-end:
-
-npm install
-# ou
-yarn install
-
-Passo 3: Configurar o endpoint da API
-
-Edite o arquivo index.tsx para definir o endereço do backend:
-
-const API_URL = "http://SEU_IP:8080/contato";
-
-OBS: como a API esta rodando localmente é necessario alterar o ip da URL para comunicar o front com o back-end. Se mesmo rodando ainda não conecta, possivelmente é bloqueio do firewall o projeto esta configurado para redes privadas.
-
-
-Para testes em rede local: use o IP da máquina que está rodando o backend
-
-Passo 4: Rodar o app no emulador Android
-
-Abra o Android Studio
-
-Configure um Android Virtual Device (AVD)
-
-No terminal do projeto front-end:
-
-npx expo start
-
-
-Pressione "A" no terminal para abrir o app no emulador Android
-
-Passo 5: Rodar no dispositivo físico
-
-Instale o app Expo Go no seu Android
-
-No terminal do projeto:
-
-npx expo start
-
-
-Escaneie o QR code exibido no navegador ou terminal com o Expo Go
-
-Passo 6: Usar o aplicativo
-
-Adicionar contato: clique em “+ Novo Contato”
-
-Editar contato: clique no botão “Editar” do card do contato
-
-Excluir contato: clique no botão “Excluir”
-
-Filtrar contatos: use a barra de pesquisa pelo nome
-
-Observações
-
-Certifique-se de que o backend esteja rodando e acessível pelo endpoint configurado
+</body>
+</html>
